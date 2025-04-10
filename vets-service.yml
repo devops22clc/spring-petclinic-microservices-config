@@ -12,7 +12,6 @@ eureka:
   instance:
     # enable to register multiple app instances with a random server port
     instance-id: ${spring.application.name}:${random.uuid}
-    hostname: vets-service
 ---
 spring:
   config:
@@ -21,6 +20,8 @@ spring:
 server:
   port: 8083
 eureka:
+  instance:
+    hostname: vets-service
   client:
     serviceUrl:
       defaultZone: http://discovery-server:8761/eureka/

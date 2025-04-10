@@ -10,13 +10,14 @@ eureka:
   instance:
     # enable to register multiple app instances with a random server port
     instance-id: ${spring.application.name}:${random.uuid}
-    hostname: tracing-server
 ---
 spring:
   config:
     activate:
       on-profile: docker
 eureka:
+  instance:
+    hostname: tracing-server
   client:
     serviceUrl:
       defaultZone: http://discovery-server:8761/eureka/
